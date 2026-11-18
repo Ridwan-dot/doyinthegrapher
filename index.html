@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>doyinthegrapher | The Baddest Photographer</title>
+<style>
+:root{color-scheme:dark;--bg:#1c1c1b;--panel:#2b2b2a;--line:#444441;--amber:#FAC775;--text:#f1efe8;--mute:#B4B2A9;--red:#f09595;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.hud{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;display:flex;justify-content:space-between;font-size:12px}
+.rec{color:var(--red)}
+.rec i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:6px;animation:b 1.6s infinite}
+@keyframes b{50%{opacity:.2}}
+section{max-width:720px;margin:0 auto;padding:72px 20px 40px}
+.herowrap{position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%;opacity:.32}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-top:110px}
+.hero h1{font-size:clamp(24px,7.4vw,62px);letter-spacing:1px;line-height:1.1;margin:0;font-weight:700}
+.hero .tl{color:var(--text);margin:10px 0 0;font-size:18px}
+.lbl{font-size:12px;letter-spacing:2px;color:var(--amber);text-transform:uppercase}
+h2{font-size:26px;margin:6px 0 18px}
+.btn{display:inline-block;background:var(--amber);color:#412402;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:8px;margin-top:22px}
+.btn.ghost{background:none;border:1px solid var(--amber);color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.shot{position:relative;aspect-ratio:4/5;background:var(--panel);border-radius:4px;overflow:hidden;cursor:zoom-in}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:var(--panel);border-radius:8px;padding:18px 16px;border-left:3px solid var(--amber)}
+.card b{display:block;font-size:16px}
+ol{list-style:none;counter-reset:r;margin:0;padding:0}
+li{counter-increment:r;border-top:1px solid var(--line);padding:14px 0 14px 50px;position:relative}
+li:before{content:"f/" counter(r);position:absolute;left:0;top:14px;font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--amber)}
+li em{color:var(--mute);font-style:normal}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.note{color:var(--mute);font-size:13px;margin-top:12px}
+footer{text-align:center;color:var(--mute);font-size:12px;padding:30px 20px 60px}
+.fb{position:fixed;z-index:15;pointer-events:none;left:0;top:0;width:0;height:0;opacity:0;transition:all .35s cubic-bezier(.2,.8,.2,1)}
+.fb i{position:absolute;width:18px;height:18px;border:2px solid var(--amber)}
+.fb i:nth-child(1){top:-6px;left:-6px;border-right:0;border-bottom:0}
+.fb i:nth-child(2){top:-6px;right:-6px;border-left:0;border-bottom:0}
+.fb i:nth-child(3){bottom:-6px;left:-6px;border-right:0;border-top:0}
+.fb i:nth-child(4){bottom:-6px;right:-6px;border-left:0;border-top:0}
+.fb b{position:absolute;left:-6px;bottom:-30px;font:600 11px ui-monospace,Menlo,monospace;color:var(--amber);letter-spacing:1px}
+.ba{position:relative;aspect-ratio:1000/1052;border-radius:6px;overflow:hidden;--p:50%;background:#000;touch-action:pan-y}
+.ba .ly{position:absolute;inset:0}
+.ba .ly img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ba .ly em{position:absolute;bottom:12px;left:12px;font:600 11px ui-monospace,Menlo,monospace;font-style:normal;letter-spacing:2px;background:rgba(0,0,0,.6);color:#fff;padding:4px 10px;border-radius:12px}
+.ba .af{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .bf em{left:auto;right:12px}
+.ba .hd{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:var(--amber);pointer-events:none}
+.ba .hd:after{content:"< >";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--amber);color:#412402;font:700 11px ui-monospace,Menlo,monospace;padding:6px 8px;border-radius:14px;white-space:nowrap}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+
+.mt{position:absolute;left:0;bottom:-1px;height:3px;width:var(--s,0%);background:var(--amber)}
+.snd{background:none;border:1px solid var(--line);color:var(--mute);font:600 11px ui-monospace,Menlo,monospace;padding:3px 8px;border-radius:12px;cursor:pointer}
+.snd[aria-pressed="true"]{color:var(--amber);border-color:var(--amber)}
+.shut{position:fixed;z-index:25;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:68px;height:68px;border-radius:50%;border:3px solid var(--text);background:rgba(28,28,27,.85);display:flex;align-items:center;justify-content:center;text-decoration:none;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s}
+.shut.on{opacity:1;transform:none;pointer-events:auto}
+.shut span{width:50px;height:50px;border-radius:50%;background:var(--amber);color:#412402;display:flex;align-items:center;justify-content:center;font:700 11px ui-monospace,Menlo,monospace;letter-spacing:1px}
+.shut:active span{transform:scale(.9)}
+.hbg{transform-origin:60% 30%;animation:zm 16s ease-out forwards}
+@keyframes zm{from{transform:scale(1)}to{transform:scale(1.1)}}
+.boot{position:fixed;inset:0;z-index:100;animation:gone 0s 2.5s forwards}
+.boot .cu{position:absolute;left:0;right:0;height:50%;background:#000}
+.boot .t{top:0;animation:up .8s cubic-bezier(.7,0,.2,1) 1.7s forwards}
+.boot .u{bottom:0;animation:dn .8s cubic-bezier(.7,0,.2,1) 1.7s forwards}
+.boot .bt{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text);text-align:center;animation:fo .3s ease 1.5s forwards}
+.boot .ring{width:76px;height:76px;border-radius:50%;border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;animation:sp 1.6s ease-in-out}
+.boot .ring:after{content:"";width:28px;height:28px;border-radius:50%;background:var(--amber)}
+.boot .bt b{font-size:18px;letter-spacing:3px}
+.boot .bt small{font-size:11px;letter-spacing:2px;color:var(--mute)}
+.boot.go{animation:none;opacity:0;visibility:hidden;transition:opacity .25s}
+@keyframes up{to{transform:translateY(-100%)}}
+@keyframes dn{to{transform:translateY(100%)}}
+@keyframes fo{to{opacity:0}}
+@keyframes sp{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.05);opacity:1}100%{transform:scale(1)}}
+@keyframes gone{to{visibility:hidden}}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 56px) 16px calc(env(safe-area-inset-bottom,0px) + 70px)}
+.lb[hidden]{display:none}
+.lb .big{width:min(100%,560px);max-height:72vh;background:var(--panel);border-radius:4px;overflow:hidden}
+.lb .big img{width:100%;height:100%;object-fit:contain;display:block}
+.lb .ex{margin-top:14px;color:var(--amber);font-size:12px;letter-spacing:1px;text-align:center}
+.lb button{position:absolute;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:22px;font:600 13px ui-monospace,Menlo,monospace;padding:12px 16px;min-height:44px;cursor:pointer}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 12px);right:14px}
+.lb .pv{left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}
+.lb .nx{right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}
+.flash{position:fixed;inset:0;z-index:70;background:#fff;opacity:0;pointer-events:none}
+.flash.f{animation:fl .35s ease-out}
+@keyframes fl{0%{opacity:.85}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hbg,.shut{transition:none!important;animation:none!important}.fb,.rec i,.boot *,.flash{transition:none!important;animation:none!important}.boot{display:none}}
+</style>
+</head>
+<body>
+
+<div class="boot" id="boot" aria-hidden="true"><div class="cu t"></div><div class="cu u"></div><div class="bt mono"><div class="ring"></div><b>DOYINTHEGRAPHER</b><small>POWERING ON · TAP TO SKIP</small></div></div>
+
+<div class="hud mono"><span id="set">f/1.8 &nbsp;1/200 &nbsp;ISO 100</span><button class="snd" id="snd" aria-pressed="true" aria-label="Toggle shutter sound">SND ON</button><span class="rec"><i></i>REC</span><div class="mt" id="mt"></div></div>
+<div class="fb" id="fb"><i></i><i></i><i></i><i></i><b>AF LOCKED</b></div>
+
+<div class="herowrap">
+<img class="hbg" src="images/hero.jpg" alt="">
+<section class="hero">
+<div class="lbl mono" style="margin-bottom:14px">Osogbo · Photography</div>
+<div data-focus data-set="f/1.8 &nbsp;1/200 &nbsp;ISO 100" style="display:inline-block;margin:0 auto;padding:12px 6px">
+<h1>DOYINTHEGRAPHER</h1>
+<p class="tl">The baddest photographer</p>
+</div>
+<p style="color:var(--mute);max-width:420px;margin:18px auto 0">Almost addicted to working. Every image of yours is handled with care until it is ready.</p>
+<div><a target="_blank" rel="noopener noreferrer" class="btn" href="https://wa.me/2348024478095?text=Hello%2C%20I%27d%20like%20to%20book%20a%20shoot.">Book on WhatsApp</a></div>
+</section>
+</div>
+
+<section>
+<div class="lbl mono">Gallery</div>
+<h2>Through the lens</h2>
+<div class="grid" id="gal">
+<div class="shot" data-focus data-set="f/2.0 &nbsp;1/250 &nbsp;ISO 400"><img src="images/photo-1.jpg" alt="Woman in a red sequin top crouching beside a pillar at night" loading="lazy"></div>
+<div class="shot" data-focus data-set="f/2.8 &nbsp;1/125 &nbsp;ISO 200"><img src="images/photo-2.jpg" alt="Woman in a red beaded dress laughing on a staircase" loading="lazy"></div>
+<div class="shot" data-focus data-set="f/1.4 &nbsp;1/500 &nbsp;ISO 100"><img src="images/photo-3.jpg" alt="Man in profile wearing glasses and a white top against a brown backdrop" loading="lazy"></div>
+<div class="shot" data-focus data-set="f/2.2 &nbsp;1/160 &nbsp;ISO 160"><img src="images/photo-4.jpg" alt="Smiling woman in a white headwrap and green pleated trousers on a sofa" loading="lazy"></div>
+<div class="shot" data-focus data-set="f/1.8 &nbsp;1/320 &nbsp;ISO 100"><img src="images/photo-5.jpg" alt="Laughing man in round glasses and a grey t-shirt" loading="lazy"></div>
+<div class="shot" data-focus data-set="f/4.0 &nbsp;1/100 &nbsp;ISO 400"><img src="images/photo-6.jpg" alt="Man in a striped outfit and cap on a phone call, seated in a wooden chair" loading="lazy"></div>
+</div>
+<p class="note">Tap any photo to open it full screen. Swipe to move between photos.</p>
+</section>
+
+<section>
+<div class="lbl mono">The edit</div>
+<h2>Raw to ready</h2>
+<div class="ba" id="ba" data-focus data-set="f/5.6 &nbsp;1/125 &nbsp;ISO 100">
+<div class="ly bf"><img src="images/raw.jpg" alt="Portrait before editing"><em>RAW</em></div>
+<div class="ly af"><img src="images/edited.jpg" alt="The same portrait after editing"><em>EDITED</em></div>
+<div class="hd"></div>
+<input type="range" min="0" max="100" value="50" step="1" aria-label="Drag to compare the raw photo and the edited photo" id="rg">
+</div>
+<p class="note">Drag the line to see the difference his editing makes.</p>
+</section>
+
+<section>
+<div class="lbl mono">Sessions</div>
+<h2>What you can book</h2>
+<div class="cards">
+<div class="card" data-focus data-set="f/2.8 &nbsp;1/200 &nbsp;ISO 100"><b>Birthday shoot</b></div>
+<div class="card" data-focus data-set="f/2.8 &nbsp;1/200 &nbsp;ISO 100"><b>Convocation</b></div>
+<div class="card" data-focus data-set="f/2.8 &nbsp;1/200 &nbsp;ISO 100"><b>Portrait shoot</b></div>
+<div class="card" data-focus data-set="f/2.8 &nbsp;1/200 &nbsp;ISO 100"><b>Fashion &amp; lookbook</b></div>
+<div class="card" data-focus data-set="f/2.8 &nbsp;1/200 &nbsp;ISO 100"><b>Wedding &amp; traditional</b></div>
+<div class="card" data-focus data-set="f/2.8 &nbsp;1/200 &nbsp;ISO 100"><b>Events &amp; corporate</b></div>
+</div>
+</section>
+
+<section>
+<div class="lbl mono">Before you book</div>
+<h2>Rules of the shoot</h2>
+<ol data-focus data-set="f/8 &nbsp;1/60 &nbsp;ISO 100">
+<li>You cover transport within Osogbo. <em>No shoots outside Osogbo for now.</em></li>
+<li>Part payment is required to validate your booking.</li>
+<li>Book at least three days before your birthday or occasion.</li>
+<li>No raw pictures. <em>Only images you have paid for are delivered.</em></li>
+<li>No rescheduling on the day of your shoot. <em>It attracts an extra ₦5,000.</em></li>
+<li>Lateness costs ₦5,000 for every 30 minutes. <em>After 1 hour, the shoot ends.</em></li>
+<li>Editing takes 2 to 3 days. <em>Express delivery of 5 pictures is an extra ₦10,000.</em></li>
+<li>Hotel or location fees for your shoot are paid by you.</li>
+<li>No refunds. <em>Prices are not negotiable.</em></li>
+</ol>
+</section>
+
+<section>
+<div class="lbl mono">Ready?</div>
+<div data-focus data-set="f/1.8 &nbsp;1/200 &nbsp;ISO 100" style="display:inline-block;padding:10px 14px 18px">
+<h2>Let’s make your day look good</h2>
+<div class="links">
+<a target="_blank" rel="noopener noreferrer" class="btn" href="https://wa.me/2348024478095?text=Hello%2C%20I%27d%20like%20to%20book%20a%20shoot." style="margin-top:0">WhatsApp</a>
+<a target="_blank" rel="noopener noreferrer" class="btn ghost" href="https://instagram.com/doyin_thegrapher" style="margin-top:0">@doyin_thegrapher</a>
+</div>
+</div>
+</section>
+
+<footer class="mono">© doyinthegrapher · Osogbo</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+<button class="x" id="lx" aria-label="Close photo">CLOSE</button>
+<div class="big" id="big"></div>
+<div class="ex mono" id="ex"></div>
+<button class="pv" id="lp" aria-label="Previous photo">&lt; PREV</button>
+<button class="nx" id="ln" aria-label="Next photo">NEXT &gt;</button>
+</div>
+<div class="flash" id="fl"></div>
+<a class="shut" id="shut" target="_blank" rel="noopener noreferrer" href="https://wa.me/2348024478095?text=Hello%2C%20I%27d%20like%20to%20book%20a%20shoot." aria-label="Book on WhatsApp"><span>BOOK</span></a>
+
+<script>
+(function(){
+var boot=document.getElementById('boot');
+function skip(){boot.classList.add('go');}
+boot.addEventListener('click',skip);
+setTimeout(skip,2600);
+
+var fb=document.getElementById('fb'),set=document.getElementById('set');
+var els=[].slice.call(document.querySelectorAll('[data-focus]')),cur=null,tick=false;
+function pick(){
+tick=false;
+var mid=window.innerHeight/2,best=null,bd=1e9;
+els.forEach(function(e){var r=e.getBoundingClientRect();if(r.bottom<80||r.top>window.innerHeight)return;var d=Math.abs((r.top+r.bottom)/2-mid);if(d<bd){bd=d;best=e;}});
+if(!best){fb.style.opacity=0;return;}
+var r=best.getBoundingClientRect();
+fb.style.opacity=1;
+fb.style.transform='translate('+r.left+'px,'+r.top+'px)';
+fb.style.width=r.width+'px';fb.style.height=r.height+'px';
+if(best!==cur){cur=best;set.innerHTML=best.getAttribute('data-set')||'';}
+}
+function req(){if(!tick){tick=true;requestAnimationFrame(pick);}}
+window.addEventListener('scroll',req,{passive:true});
+window.addEventListener('resize',req);
+pick();
+
+var shots=[].slice.call(document.querySelectorAll('.shot')),lb=document.getElementById('lb'),big=document.getElementById('big'),ex=document.getElementById('ex'),fl=document.getElementById('fl'),idx=0,opener=null;
+function flash(){fl.classList.remove('f');void fl.offsetWidth;fl.classList.add('f');}
+function show(i){
+idx=(i+shots.length)%shots.length;
+var s=shots[idx];
+big.innerHTML=s.innerHTML;
+big.style.aspectRatio='4/5';
+ex.textContent='FRAME '+String(idx+1).padStart(2,'0')+' / '+String(shots.length).padStart(2,'0')+'  ·  '+(s.getAttribute('data-set')||'').replace(/\u00a0/g,' ').replace(/\s+/g,' ');
+flash();click();
+}
+function open(i,from){opener=from;lb.hidden=false;shut.classList.remove('on');document.body.style.overflow='hidden';show(i);document.getElementById('lx').focus();}
+function close(){lb.hidden=true;document.body.style.overflow='';setTimeout(prog,0);if(opener)opener.focus();}
+shots.forEach(function(s,i){
+s.tabIndex=0;s.setAttribute('role','button');s.setAttribute('aria-label','Open photo '+(i+1)+' full screen');
+s.addEventListener('click',function(){open(i,s);});
+s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i,s);}});
+});
+document.getElementById('lx').addEventListener('click',close);
+document.getElementById('lp').addEventListener('click',function(){show(idx-1);});
+document.getElementById('ln').addEventListener('click',function(){show(idx+1);});
+document.addEventListener('keydown',function(e){
+if(lb.hidden)return;
+if(e.key==='Escape')close();
+if(e.key==='ArrowLeft')show(idx-1);
+if(e.key==='ArrowRight')show(idx+1);
+});
+
+
+var mt=document.getElementById('mt'),shut=document.getElementById('shut');
+function prog(){
+var h=document.documentElement,max=h.scrollHeight-window.innerHeight,y=window.scrollY||h.scrollTop;
+mt.style.setProperty('--s',(max>0?Math.min(100,y/max*100):0)+'%');
+shut.classList.toggle('on',y>window.innerHeight*0.6&&lb.hidden);
+}
+window.addEventListener('scroll',prog,{passive:true});
+var ac=null,sndOn=true,snd=document.getElementById('snd');
+snd.addEventListener('click',function(){sndOn=!sndOn;snd.setAttribute('aria-pressed',sndOn);snd.textContent=sndOn?'SND ON':'SND OFF';if(sndOn)click();});
+function tone(at,f,d,v){
+var o=ac.createOscillator(),g=ac.createGain(),b=ac.createBuffer(1,Math.floor(ac.sampleRate*d),ac.sampleRate),dt=b.getChannelData(0),i,n=ac.createBufferSource(),bp=ac.createBiquadFilter();
+for(i=0;i<dt.length;i++){dt[i]=(Math.random()*2-1)*Math.pow(1-i/dt.length,3);}
+n.buffer=b;bp.type='bandpass';bp.frequency.value=f;bp.Q.value=1.2;g.gain.value=v;
+n.connect(bp);bp.connect(g);g.connect(ac.destination);n.start(at);
+}
+function click(){
+if(!sndOn)return;
+try{
+ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+if(ac.state==='suspended')ac.resume();
+var t0=ac.currentTime;tone(t0,2600,.035,.9);tone(t0+.07,1500,.05,.7);
+}catch(e){}
+}
+var tx=0;
+big.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;},{passive:true});
+big.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){show(idx+(dx<0?1:-1));}},{passive:true});
+boot.addEventListener('click',click);
+prog();
+var ba=document.getElementById('ba'),rg=document.getElementById('rg');
+rg.addEventListener('input',function(){ba.style.setProperty('--p',rg.value+'%');});
+})();
+</script>
+</body>
+</html>
